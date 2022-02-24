@@ -4,6 +4,7 @@ package mancala.api.models;
 // A DTO is a simple datastructure which models the
 // data your web API sends back to the client. The Java
 // objects will be converted to JSON objects.
+
 public class Mancala {
     public Mancala(mancala.domain.Mancala mancala, 
             String namePlayer1, String namePlayer2) {

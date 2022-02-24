@@ -14,9 +14,7 @@ public class StartMancala {
     @POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response initialize(
-			@Context HttpServletRequest request, 
-			PlayerInput players) {
+	public Response initialize(@Context HttpServletRequest request, PlayerInput players) {
         var mancala = new MancalaImpl();
         String namePlayer1 = players.getNameplayer1();
 		String namePlayer2 = players.getNameplayer2();
