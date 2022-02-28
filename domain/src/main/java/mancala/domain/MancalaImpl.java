@@ -7,11 +7,11 @@ public class MancalaImpl implements Mancala {
     private Player activePlayer;
     private Board board;
 
-    public MancalaImpl(Player namePlayerOne, Player namePlayerTwo) {
-        playerOne = namePlayerOne;
-        playerTwo = namePlayerTwo;
-        activePlayer = playerOne;
+    public MancalaImpl() {
+        playerOne = new Player(new Kalaha());
+        playerTwo = new Player(new Kalaha());
         board = new Board (playerOne, playerTwo);
+        activePlayer = board.getActivePlayer();
     }
 
     @Override
@@ -20,7 +20,8 @@ public class MancalaImpl implements Mancala {
             return true;
         }else if (player == PLAYER_TWO && activePlayer == playerTwo) {
             return true;
-        }else {return false;
+        }else {
+            return false;
         }
     }
 
@@ -28,10 +29,21 @@ public class MancalaImpl implements Mancala {
 	public void playPit(int index) throws MancalaException {
         board.playerMove(index);
     }
-	
+
+
 	@Override
 	public int getStonesForPit(int index) {
-        int numberOfStones = board.getActivePlayer().getCups().get(index).getStonesPerCup();
+        int numberOfStones = 0;
+
+        boolean isPlayerOneCup = index < 7;
+        int reducedIndex = index % 7;
+
+        if (index < 6){
+            numberOfStones = isPlayerOneCup ? playerOne.getCups().get(reducedIndex).getStonesPerCup() 
+                                            : playerTwo.getCups().get(reducedIndex).getStonesPerCup();
+        } else {
+            numberOfStones = isPlayerOneCup ? playerOne.getScore() : playerTwo.getScore();
+        }
         return numberOfStones;
     }
 
