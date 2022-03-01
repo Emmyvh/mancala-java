@@ -27,7 +27,8 @@ public class MancalaImpl implements Mancala {
 
     @Override
 	public void playPit(int index) throws MancalaException {
-        board.playerMove(index);
+        int reducedIndex = index %7;
+        board.playerMove(reducedIndex);
     }
 
 
@@ -35,11 +36,11 @@ public class MancalaImpl implements Mancala {
 	public int getStonesForPit(int index) {
         int numberOfStones = 0;
 
-        boolean isPlayerOneCup = index < 6;
-        int reducedIndex = index - 6;
+        boolean isPlayerOneCup = index <= 6;
+        int reducedIndex = index %7;
 
-        if (index < 6){
-            numberOfStones = isPlayerOneCup ? board.getPlayerOne().getCups().get(index).getStonesPerCup() 
+        if (reducedIndex < 6){
+            numberOfStones = isPlayerOneCup ? board.getPlayerOne().getCups().get(reducedIndex).getStonesPerCup() 
                                             : board.getPlayerTwo().getCups().get(reducedIndex).getStonesPerCup();
         } else {
             numberOfStones = isPlayerOneCup ? board.getPlayerOne().getScore() : board.getPlayerTwo().getScore();

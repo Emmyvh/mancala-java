@@ -1,10 +1,10 @@
-image: docker pull gradle
+image: gradle:latest
 
 stages:
   - sample-stage
   - test
   - jacoco
-  - checkstyle
+  
 
 sample-job:
   stage: sample-stage
