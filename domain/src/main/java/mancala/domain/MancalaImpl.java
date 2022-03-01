@@ -35,14 +35,14 @@ public class MancalaImpl implements Mancala {
 	public int getStonesForPit(int index) {
         int numberOfStones = 0;
 
-        boolean isPlayerOneCup = index < 7;
-        int reducedIndex = index % 7;
+        boolean isPlayerOneCup = index < 6;
+        int reducedIndex = index - 6;
 
         if (index < 6){
-            numberOfStones = isPlayerOneCup ? playerOne.getCups().get(reducedIndex).getStonesPerCup() 
-                                            : playerTwo.getCups().get(reducedIndex).getStonesPerCup();
+            numberOfStones = isPlayerOneCup ? board.getPlayerOne().getCups().get(index).getStonesPerCup() 
+                                            : board.getPlayerTwo().getCups().get(reducedIndex).getStonesPerCup();
         } else {
-            numberOfStones = isPlayerOneCup ? playerOne.getScore() : playerTwo.getScore();
+            numberOfStones = isPlayerOneCup ? board.getPlayerOne().getScore() : board.getPlayerTwo().getScore();
         }
         return numberOfStones;
     }

@@ -1,9 +1,27 @@
-image: ubuntu
+image: docker pull gradle
 
 stages:
   - sample-stage
+  - test
+  - jacoco
+  - checkstyle
 
 sample-job:
   stage: sample-stage
   script:
     - echo "Hello world"
+
+test:
+  stage: test
+  script: 
+    - gradlew test
+
+jacoco:
+  stage: jacoco
+  script:
+    - gradlew clean build
+
+checkstyle:
+  stage: checkstyle
+  script:
+    - gradlew check
