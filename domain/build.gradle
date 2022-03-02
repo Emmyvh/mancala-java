@@ -3,6 +3,7 @@ plugins {
     id 'java'
     id 'java-library'
     id 'jacoco'
+    id 'checkstyle'
 }
 
 repositories {
@@ -33,3 +34,15 @@ jacocoTestReport {
 jacoco {
     toolVersion = "0.8.7"
 }
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+checkstyle {
+    configFile = rootProject.file('config/checkstyle/checkstyle.xml')
+}
+
