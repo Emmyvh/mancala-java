@@ -7,7 +7,7 @@ import java.util.List;
 public class Player {
     private Kalaha kalaha;
     private List<Cup> cups;
-    StoneCollectors activeElement = null;
+    private StoneCollectors activeElement = null;
 
     //Defining the variables. Each player has their own cups, a kalaha, and opponent cups.
     public Player(Kalaha playerKalaha) {
@@ -31,9 +31,10 @@ public class Player {
 
     //Checking if a cup has stones left.
     public boolean hasStonesLeft() {
-        if (getNumberOfStonesPerPlayer() >0) {
+        if (getNumberOfStonesPerPlayer() > 0) {
             return true;
-        } else {return false;
+        } else {
+            return false;
         }
     }
 
@@ -50,7 +51,6 @@ public class Player {
         selectedCup.emptyACup();
 
         //Assign an Empty variable by declaring it null. This throws an exception if not used in the for loop.
-        
         for (int i = selectedCupNumber; i < selectedCupNumber + numberOfStonesSelectedCup; i++) {
             activeElement = stoneCollectors.get(i % stoneCollectors.size());
             activeElement.addOneStoneToACup();

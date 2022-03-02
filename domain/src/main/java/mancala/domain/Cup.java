@@ -1,13 +1,13 @@
 package mancala.domain;
 
-public class Cup implements StoneCollectors{
+public class Cup implements StoneCollectors {
 
     //variables
     private int currentNumberOfStonesInACup;
 
     // constructor for cups
     public Cup() {
-        currentNumberOfStonesInACup = 4 ;
+        currentNumberOfStonesInACup = 4;
     }
 
     //Setters and Getters
@@ -23,6 +23,4 @@ public class Cup implements StoneCollectors{
     public void addOneStoneToACup() {
         this.currentNumberOfStonesInACup += 1;
     }
-
-
 }

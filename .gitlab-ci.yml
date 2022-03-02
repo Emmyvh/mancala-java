@@ -3,23 +3,17 @@ image: gradle:latest
 stages:
   - sample-stage
   - test
-  - jacoco
-  
-
-sample-job:
-  stage: sample-stage
-  script:
-    - echo "Hello world"
+  - jacoco-coverage
 
 test:
   stage: test
   script: 
     - gradlew test
 
-jacoco:
-  stage: jacoco
+jacoco-coverage:
+  stage: jacoco-coverage
   script:
-    - gradlew clean build
+    - gradlew jacocoTestCoverageVerification
 
 checkstyle:
   stage: checkstyle

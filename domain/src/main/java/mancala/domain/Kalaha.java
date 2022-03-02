@@ -1,6 +1,6 @@
 package mancala.domain;
 
-public class Kalaha implements StoneCollectors{
+public class Kalaha implements StoneCollectors {
 
     private int currentNumberOfStonesInAKalaha;
 
