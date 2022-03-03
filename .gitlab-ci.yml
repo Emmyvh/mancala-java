@@ -1,21 +1,21 @@
 image: gradle:latest
 
 stages:
-  - sample-stage
   - test
   - jacoco-coverage
+  - checkstyle
 
 test:
   stage: test
   script: 
-    - gradlew test
+    - gradle test
 
 jacoco-coverage:
   stage: jacoco-coverage
   script:
-    - gradlew jacocoTestCoverageVerification
+    - gradle jacocoTestCoverageVerification
 
 checkstyle:
   stage: checkstyle
   script:
-    - gradlew check
+    - gradle check

@@ -113,3 +113,7 @@ The global goal is to make a web front-end to your mancala back-end. A stub has 
 - Show the winner as soon as the game is over.
 - Optionally, allow for a "revenge" option in which two players can play again.
 - Optionally, allow an ongoing game to continue after a page refresh.
+
+## Test Code Coverage
+
+This project is checked for test coverage via jacoco plugin. If test coverage falls under 60% any build will break.

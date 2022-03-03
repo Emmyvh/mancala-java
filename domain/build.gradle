@@ -48,9 +48,6 @@ checkstyle {
     configProperties.checkstyleSuppressionsPath = file("../config/checkstyle/suppressions.xml").absolutePath
 }
 
-
 checkstyleMain {
-    source = 'src/main/java'
+    source ='src/main/java'
 }
-
-

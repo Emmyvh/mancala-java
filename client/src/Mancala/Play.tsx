@@ -66,21 +66,25 @@ const cupThirteen = playerTwo.pits[5];
 
                 <div className = "TopBoard">
                     <div className = "KalahaTwo">Kalaha 2 stones:{kalahaTwo.nrOfStones}</div>
+                    
                     <button className = "CupsTwo" onClick = {() => ButtonClicked(cupThirteen.index)}>cup 13 stones:{cupThirteen.nrOfStones}</button>
                     <button className = "CupsTwo" onClick = {() => ButtonClicked(cupTwelve.index)}>cup 12 stones:{cupTwelve.nrOfStones}</button>
                     <button className = "CupsTwo" onClick = {() => ButtonClicked(cupEleven.index)}>cup 11 stones:{cupEleven.nrOfStones}</button>
                     <button className = "CupsTwo" onClick = {() => ButtonClicked(cupTen.index)}>cup 10 stones:{cupTen.nrOfStones}</button>
                     <button className = "CupsTwo" onClick = {() => ButtonClicked(cupNine.index)}>cup 9 stones:{cupNine.nrOfStones}</button>
                     <button className = "CupsTwo" onClick = {() => ButtonClicked(cupEight.index)}>cup 8 stones:{cupEight.nrOfStones}</button>
+                    <button className = "Filler">Player 2</button>
                 </div>
 
                 <div className = "BottomBoard">
+                    <button className = "Filler">Player 1</button>
                     <button className = "CupsOne" onClick = {() => ButtonClicked(cupOne.index)}>cup 1 stones:{cupOne.nrOfStones}</button>
                     <button className = "CupsOne" onClick = {() => ButtonClicked(cupTwo.index)}>cup 2 stones:{cupTwo.nrOfStones}</button>
                     <button className = "CupsOne" onClick = {() => ButtonClicked(cupThree.index)}>cup 3 stones:{cupThree.nrOfStones}</button>
                     <button className = "CupsOne" onClick = {() => ButtonClicked(cupFour.index)}>cup 4 stones:{cupFour.nrOfStones}</button>
                     <button className = "CupsOne" onClick = {() => ButtonClicked(cupFive.index)}>cup 5 stones:{cupFive.nrOfStones}</button>
                     <button className = "CupsOne" onClick = {() => ButtonClicked(cupSix.index)}>cup 6 stones:{cupSix.nrOfStones}</button>
+                    
                     <div className = "KalahaOne">Kalaha 1 stones:{kalahaOne.nrOfStones}</div>
                 </div>
             </div> 
