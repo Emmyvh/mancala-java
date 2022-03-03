@@ -1,19 +1,20 @@
 package mancala.domain;
 
-import  org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 public class KalahaTest {
 
-//Testing variables
+    // Testing variables
     @Test
-    public void WhenAGameStartsAKalahaHasZeroStones () {
+    public void whenGameStartsKalahaHasZeroStones() {
         Kalaha kalaha = new Kalaha();
         assertEquals(0, kalaha.getStonesPerKalaha());
     }
 
     @Test
-    public void WhenAGameMoveIsMadeYouCanAddAStoneToTheKalaha () {
+    public void whenGameMoveIsMadeYouCanAddStoneToKalaha() {
         Kalaha kalaha = new Kalaha();
         kalaha.addOneStoneToACup();
         assertEquals(1, kalaha.getStonesPerKalaha());

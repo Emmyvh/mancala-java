@@ -1,30 +1,30 @@
 package mancala.domain;
 
-import  org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class PlayerTest {
 
     @Test
-    public void WhenMakingANewPlayerHeHasSixCups () {
+    public void whenMakingNewPlayerHeHasSixCups() {
         Player player = new Player(new Kalaha());
         List<Cup> cups = player.getCups();
-        assertEquals (6, cups.size());
+        assertEquals(6, cups.size());
     }
 
     @Test
-    public void WhenStartingAPlayerHasTwentyFourStones () {
+    public void whenStartingPlayerHasTwentyfourStones() {
         Player player = new Player(new Kalaha());
         assertEquals(24, player.getNumberOfStonesPerPlayer());
     }
 
     @Test
-    public void WhenPickingTheFirstBowlTheNumberOfStonesDecreases() {
+    public void whenPickingTheFirstBowlTheNumberOfStonesDecreases() {
         Player player = new Player(new Kalaha());
         Cup cup = player.getCups().get(0);
         cup.emptyACup();
@@ -32,28 +32,28 @@ public class PlayerTest {
     }
 
     @Test
-    public void WhenStartingAGameThePlayerScoreIsZero () {
+    public void whenStartingGameThePlayerscoreIsZero() {
         Player player = new Player(new Kalaha());
-        assertEquals (0, player.getScore());
+        assertEquals(0, player.getScore());
     }
 
     @Test
-    public void WhenAddingAStoneToTheKalahaScoreIsOne () {
-        Kalaha kalaha = new Kalaha ();
+    public void whenAddingStoneToTheKalahaScoreIsOne() {
+        Kalaha kalaha = new Kalaha();
         Player player = new Player(kalaha);
         kalaha.addOneStoneToACup();
         assertEquals(player.getScore(), kalaha.getStonesPerKalaha());
     }
 
     @Test
-    public void WhenAllCupsAreEmptyAPlayerHasNoStonesLeft() {
+    public void whenAllCupsAreEmptyPlayerHasNoStonesLeft() {
         Player player = new Player(new Kalaha());
         player.getCups().forEach(cup -> cup.emptyACup());
         assertFalse(player.hasStonesLeft());
     }
 
     @Test
-    public void whenNotAllCupsAreEmptyAPlayerHasStonesLeft() {
+    public void whenNotAllCupsAreEmptyPlayerHasStonesLeft() {
         Player player = new Player(new Kalaha());
         Cup cup = player.getCups().get(0);
         cup.emptyACup();
@@ -61,7 +61,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void WhenPickingACupTheCupIsEmpty(){
+    public void whenPickingCupTheCupIsEmpty() {
         Player player = new Player(new Kalaha());
         player.makeMove(1, new ArrayList<>());
         assertEquals(0, player.getCups().get(0).getStonesPerCup());
@@ -122,7 +122,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void WhenTheLastStoneLandsInAnEmptyBowlTheOpponentsStonesAreAddedToTheKahala() {
+    public void whenTheLastStoneLandsInAnEmptyBowlTheOpponentsStonesAreAddedToTheKahala() {
         var player = new Player(new Kalaha());
         player.getCups().get(4).emptyACup();
         var opponentCups = Arrays.asList(new Cup(), new Cup(), new Cup(), new Cup(), new Cup(), new Cup());

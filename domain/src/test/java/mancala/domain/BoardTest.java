@@ -1,22 +1,22 @@
 package mancala.domain;
 
-import  org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 public class BoardTest {
 
     @Test
-    public void WhenAGameStartsThereAreTwoPlayers (){
-        Player playerOne = new Player (new Kalaha());
-        Player playerTwo = new Player (new Kalaha());
-        Board mancala = new Board (playerOne, playerTwo);
+    public void whenGameStartsThereAreTwoPlayers() {
+        Player playerOne = new Player(new Kalaha());
+        Player playerTwo = new Player(new Kalaha());
+        Board mancala = new Board(playerOne, playerTwo);
         assertEquals(playerOne, mancala.getPlayerOne());
         assertEquals(playerTwo, mancala.getPlayerTwo());
     }
 
     @Test
-    public void WhenAPlayerHasStonesLeftAGameDoesNotEnd () {
+    public void whenPlayerHasStonesLeftGameDoesNotEnd() {
         Player playerOne = new Player(new Kalaha());
         Player playerTwo = new Player(new Kalaha());
         Board mancala = new Board(playerOne, playerTwo);
@@ -24,7 +24,7 @@ public class BoardTest {
     }
 
     @Test
-    public void WhenAPlayerHasNoStonesLeftAGameEnds () {
+    public void whenPlayerHasNoStonesLeftGameEnds() {
         Player playerOne = new Player(new Kalaha());
         Player playerTwo = new Player(new Kalaha());
         Board mancala = new Board(playerOne, playerTwo);
@@ -33,7 +33,7 @@ public class BoardTest {
     }
 
     @Test
-    public void WhenAGameStartsPlayerOneIsTheActivePlayer () {
+    public void whenGameStartsPlayerOneIsActivePlayer() {
         Player playerOne = new Player(new Kalaha());
         Player playerTwo = new Player(new Kalaha());
         Board mancala = new Board(playerOne, playerTwo);
@@ -41,7 +41,7 @@ public class BoardTest {
     }
 
     @Test
-    public void WhenATurnEndsThePlayerIsSwitched () {
+    public void whenTurnEndsPlayerIsSwitched() {
         Player playerOne = new Player(new Kalaha());
         Player playerTwo = new Player(new Kalaha());
         Board mancala = new Board(playerOne, playerTwo);
@@ -50,7 +50,7 @@ public class BoardTest {
     }
 
     @Test
-    public void WhenMakingAMoveWithCupThreeTheNumberOfStonesInCupsChange (){
+    public void whenMakingMoveWithCupThreeNumberOfStonesInCupsChange() {
         Player playerOne = new Player(new Kalaha());
         Player playerTwo = new Player(new Kalaha());
         Board mancala = new Board(playerOne, playerTwo);
@@ -68,7 +68,7 @@ public class BoardTest {
     }
 
     @Test
-    public void WhenMakingAMoveWithCupSixTheActivePlayerIsSwitched (){
+    public void whenMakingMoveWithCupSixTheActivePlayerIsSwitched() {
         Player playerOne = new Player(new Kalaha());
         Player playerTwo = new Player(new Kalaha());
         Board mancala = new Board(playerOne, playerTwo);
@@ -93,7 +93,7 @@ public class BoardTest {
     }
 
     @Test
-    public void WhenMakingAMoveWithCupSixTheActivePlayerIsSwitchedAndPlayerTwoGetsToMakeAMove (){
+    public void whenMakingMoveWithCupSixTheActivePlayerIsSwitchedAndPlayerTwoCanPlay() {
         Player playerOne = new Player(new Kalaha());
         Player playerTwo = new Player(new Kalaha());
         Board mancala = new Board(playerOne, playerTwo);
@@ -136,7 +136,7 @@ public class BoardTest {
     }
 
     @Test
-    public void WhenAllCupsOnOneSideAreEmptyAWinnerIsDeclared (){
+    public void whenAllCupsOnOneSideAreEmptyWinnerIsDeclared() {
         Player playerOne = new Player(new Kalaha());
         Player playerTwo = new Player(new Kalaha());
         Board mancala = new Board(playerOne, playerTwo);

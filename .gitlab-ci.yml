@@ -7,7 +7,7 @@ stages:
 
 test:
   stage: test
-  script: 
+  script:
     - gradle test
 
 jacoco-coverage:
@@ -19,3 +19,7 @@ checkstyle:
   stage: checkstyle
   script:
     - gradle check
+
+artifacts:
+  paths:
+   - $CI_PROJECT_DIR/domain/build/reports/*

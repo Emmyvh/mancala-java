@@ -2,7 +2,7 @@ package mancala.domain;
 
 public class Board {
 
-    //Setting up 2 player objects
+    // Setting up 2 player objects
     private Player playerOne;
     private Player playerTwo;
     private Player activePlayer;
@@ -13,7 +13,7 @@ public class Board {
         this.activePlayer = playerOne;
     }
 
-    //Getters for the two players
+    // Getters for the two players
     public Player getPlayerOne() {
         return playerOne;
     }
@@ -35,7 +35,7 @@ public class Board {
         }
     }
 
-    public Player winnerCheck () {
+    public Player winnerCheck() {
         if (!gameEnded()) {
             return null;
         } else if (playerOne.getScore() > playerTwo.getScore()) {
@@ -43,15 +43,15 @@ public class Board {
         } else {
             if (playerTwo.getScore() > playerOne.getScore()) {
                 return playerTwo;
-                } else { 
-                    return null;
+            } else {
+                return null;
             }
         }
     }
 
     public Player switchPlayer() {
         if (activePlayer == playerOne) {
-        activePlayer = playerTwo;
+            activePlayer = playerTwo;
             return playerTwo;
         } else {
             activePlayer = playerOne;
