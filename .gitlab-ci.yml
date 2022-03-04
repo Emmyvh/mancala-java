@@ -23,8 +23,6 @@ jacoco-coverage:
   stage: jacoco-coverage
   script:
     - gradle jacocoTestCoverageVerification
-    - gradle test jacocoTestReport --info
-    - cat build/reports/jacoco/test/html/index.html | grep -o 'Total[^%]*%'
   artifacts:
     paths:
     - $CI_PROJECT_DIR/domain/build/reports/*
