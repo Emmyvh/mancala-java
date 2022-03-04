@@ -9,7 +9,7 @@ stages:
 build:
   stage: build
   script:
-  - ./gradle assemble
+  - gradle assemble
 
 test:
   stage: test
