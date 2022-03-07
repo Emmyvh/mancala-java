@@ -17,7 +17,6 @@ test:
   script:
     - gradle test
     - gradle testCodeCoverageReport
-    - cat $CI_PROJECT_DIR/build/reports/jacoco/testCodeCoverageReport/html/index.html | grep -o 'Total[^%]*%' | sed 's/<.*>/ /; s/Total/Code Coverage:/'
   artifacts:
     paths:
     - $CI_PROJECT_DIR/domain/build/reports/*
