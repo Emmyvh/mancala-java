@@ -15,7 +15,6 @@ test:
   stage: test
   script:
     - gradle test
-    - gradle testCodeCoverageReport
   artifacts:
     paths:
     - $CI_PROJECT_DIR/domain/build/reports/*
