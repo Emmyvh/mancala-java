@@ -14,6 +14,10 @@ public class MancalaImpl implements Mancala {
         activePlayer = board.getActivePlayer();
     }
 
+    public Board getBoard() {
+        return board;
+    }
+
     @Override
     public boolean isPlayersTurn(int player) {
         if (player == PLAYER_ONE && activePlayer == playerOne) {

@@ -5,16 +5,20 @@ stages:
   - test
   - jacoco-coverage
   - checkstyle
+  - distribute
 
 build:
   stage: build
   script:
+  - echo "$CI_MERGE_REQUEST_DIFF_ID"
   - gradle assemble
 
 test:
   stage: test
   script:
     - gradle test
+    - gradle testCodeCoverageReport
+    - cat $CI_PROJECT_DIR/build/reports/jacoco/testCodeCoverageReport/html/index.html | grep -o 'Total[^%]*%' | sed 's/<.*>/ /; s/Total/Code Coverage:/'
   artifacts:
     paths:
     - $CI_PROJECT_DIR/domain/build/reports/*
@@ -34,3 +38,13 @@ checkstyle:
   artifacts:
     paths:
     - $CI_PROJECT_DIR/domain/build/reports/*
+
+distribute-job:
+  stage: distribute
+  rules:
+    if: $CI_COMMIT_TAG
+  script:
+    - gradle -Pversion=$CI_COMMIT_TAG distZip
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/*/build/distributions/*.zip
