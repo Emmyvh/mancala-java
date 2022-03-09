@@ -50,6 +50,16 @@ public class BoardTest {
     }
 
     @Test
+    public void whenAPlyerIsSwitchedTwicePlayerOneHasTheTurn() {
+        Player playerOne = new Player(new Kalaha());
+        Player playerTwo = new Player(new Kalaha());
+        Board mancala = new Board(playerOne, playerTwo);
+        mancala.switchPlayer();
+        mancala.switchPlayer();
+        assertEquals(playerOne, mancala.getActivePlayer());
+    }
+
+    @Test
     public void whenMakingMoveWithCupThreeNumberOfStonesInCupsChange() {
         Player playerOne = new Player(new Kalaha());
         Player playerTwo = new Player(new Kalaha());

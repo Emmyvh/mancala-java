@@ -26,6 +26,14 @@ public class Board {
         return activePlayer;
     }
 
+    public Player getOpponent() {
+        if (activePlayer == playerOne) {
+            return playerTwo;
+        } else {
+            return playerOne;
+        }
+    }
+
     // Check if the game has ended and if there is a winner.
     public boolean gameEnded() {
         if (playerOne.hasStonesLeft() && playerTwo.hasStonesLeft()) {
@@ -49,20 +57,18 @@ public class Board {
         }
     }
 
-    public Player switchPlayer() {
+    public void switchPlayer() {
         if (activePlayer == playerOne) {
             activePlayer = playerTwo;
-            return playerTwo;
         } else {
             activePlayer = playerOne;
-            return playerOne;
         }
     }
 
     public void playerMove(int cupNumber) {
         this.winnerCheck();
-        StoneCollectors activeElement = getActivePlayer().makeMove(cupNumber, switchPlayer().getCups());
-        if (activeElement instanceof Kalaha) {
+        StoneCollectors activeElement = getActivePlayer().makeMove(cupNumber, getOpponent().getCups());
+        if (!(activeElement instanceof Kalaha)) {
             this.switchPlayer();
         }
     }

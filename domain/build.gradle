@@ -51,3 +51,11 @@ checkstyle {
 checkstyleMain {
     source ='src/main/java'
 }
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'Mancala.java'
+    }
+}
+
+version = '0.0.3'

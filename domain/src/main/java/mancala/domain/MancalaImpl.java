@@ -11,11 +11,19 @@ public class MancalaImpl implements Mancala {
         playerOne = new Player(new Kalaha());
         playerTwo = new Player(new Kalaha());
         board = new Board(playerOne, playerTwo);
-        activePlayer = board.getActivePlayer();
+        activePlayer = playerOne;
     }
 
     public Board getBoard() {
         return board;
+    }
+
+    public void setActivePlayer() {
+        if (board.getActivePlayer() == playerOne) {
+            activePlayer = playerOne;
+        } else {
+            activePlayer = playerTwo;
+        }
     }
 
     @Override
@@ -33,6 +41,7 @@ public class MancalaImpl implements Mancala {
     public void playPit(int index) throws MancalaException {
         int reducedIndex = index % 7;
         board.playerMove(reducedIndex);
+        this.setActivePlayer();
     }
 
     @Override
