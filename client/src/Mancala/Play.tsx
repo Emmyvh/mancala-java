@@ -31,9 +31,16 @@ export function Play({ gameState, setGameState }: PlayProps) {
         }
     }
 
+    var winner = "";
+    if (gameState.gameStatus.endOfGame) {
+        winner = gameState.gameStatus.winner;
+        alert(winner)
+    }
+
     //Defining variables for React.
     const playerOne = gameState.players[0];
     const playerTwo = gameState.players[1];
+    var activePlayer = playerOne.hasTurn ? playerOne.name : playerTwo.name
 
     const kalahaOne = playerOne.pits[6];
     const kalahaTwo = playerTwo.pits[6];
@@ -52,18 +59,11 @@ export function Play({ gameState, setGameState }: PlayProps) {
     const cupTwelve = playerTwo.pits[4];
     const cupThirteen = playerTwo.pits[5];
 
-    var winner = "";
-    if (gameState.gameStatus.endOfGame) {
-        winner = gameState.gameStatus.winner;
-        alert(winner)
-    }
-
     //Defining the layout of the board.
     return (
         <div className="Page">
 
-            <div className="Title"> {playerOne.name} VS {playerTwo.name}</div>
-
+            <div className="Title">It's {activePlayer}'s Turn</div>
             <div className="Board">
 
                 <div className="TopBoard">
