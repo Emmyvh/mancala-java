@@ -1,8 +1,9 @@
 FROM gradle:latest
 
-WORKDIR /home/gradle/src
-
+WORKDIR /MANCALA-JAVA
 COPY . .
-
 RUN gradle build
+
+EXPOSE 8080
+ENTRYPOINT gradle run
 

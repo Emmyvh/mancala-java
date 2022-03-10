@@ -32,7 +32,7 @@ public class MancalaImplTest {
     @Test
     public void whenAMoveIsMadeStonesAreTakenFromAPit() throws MancalaException {
         MancalaImpl mancala = new MancalaImpl();
-        mancala.playPit(1);
+        mancala.playPit(0);
         assertEquals(0, mancala.getBoard().getPlayerOne().getCups().get(0).getStonesPerCup());
         assertEquals(5, mancala.getBoard().getPlayerOne().getCups().get(1).getStonesPerCup());
         assertEquals(5, mancala.getBoard().getPlayerOne().getCups().get(2).getStonesPerCup());

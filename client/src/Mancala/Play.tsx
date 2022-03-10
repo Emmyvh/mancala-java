@@ -12,10 +12,10 @@ export function Play({ gameState, setGameState }: PlayProps) {
         if (gameState.gameStatus.endOfGame) return;
 
         try {
-            const response = await fetch("mancala/api/play", {
+            const response = await fetch("mancala/api/move", {
                 method: "POST",
                 headers: {
-                    Accept: "application.json",
+                    Accept: "application/json",
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({ index: index })
@@ -29,10 +29,6 @@ export function Play({ gameState, setGameState }: PlayProps) {
         } catch (error) {
             console.error(error);
         }
-    }
-
-    function ButtonClicked(index: number) {
-        alert('You Selected Cup: ' + (index + 1));
     }
 
     //Defining variables for React.
@@ -67,23 +63,23 @@ export function Play({ gameState, setGameState }: PlayProps) {
                 <div className="TopBoard">
                     <div className="KalahaTwo">Kalaha 2 stones:{kalahaTwo.nrOfStones}</div>
 
-                    <button className="CupsTwo" onClick={() => ButtonClicked(cupThirteen.index)}>cup 13 stones:{cupThirteen.nrOfStones}</button>
-                    <button className="CupsTwo" onClick={() => ButtonClicked(cupTwelve.index)}>cup 12 stones:{cupTwelve.nrOfStones}</button>
-                    <button className="CupsTwo" onClick={() => ButtonClicked(cupEleven.index)}>cup 11 stones:{cupEleven.nrOfStones}</button>
-                    <button className="CupsTwo" onClick={() => ButtonClicked(cupTen.index)}>cup 10 stones:{cupTen.nrOfStones}</button>
-                    <button className="CupsTwo" onClick={() => ButtonClicked(cupNine.index)}>cup 9 stones:{cupNine.nrOfStones}</button>
-                    <button className="CupsTwo" onClick={() => ButtonClicked(cupEight.index)}>cup 8 stones:{cupEight.nrOfStones}</button>
+                    <button className="CupsTwo" onClick={() => MoveMancala(12)}>cup 13 stones:{cupThirteen.nrOfStones}</button>
+                    <button className="CupsTwo" onClick={() => MoveMancala(11)}>cup 12 stones:{cupTwelve.nrOfStones}</button>
+                    <button className="CupsTwo" onClick={() => MoveMancala(10)}>cup 11 stones:{cupEleven.nrOfStones}</button>
+                    <button className="CupsTwo" onClick={() => MoveMancala(9)}>cup 10 stones:{cupTen.nrOfStones}</button>
+                    <button className="CupsTwo" onClick={() => MoveMancala(8)}>cup 9 stones:{cupNine.nrOfStones}</button>
+                    <button className="CupsTwo" onClick={() => MoveMancala(7)}>cup 8 stones:{cupEight.nrOfStones}</button>
                     <button className="Filler">Player 2</button>
                 </div>
 
                 <div className="BottomBoard">
                     <button className="Filler">Player 1</button>
                     <button className="CupsOne" onClick={() => MoveMancala(0)}>cup 1 stones:{cupOne.nrOfStones}</button>
-                    <button className="CupsOne" onClick={() => ButtonClicked(cupTwo.index)}>cup 2 stones:{cupTwo.nrOfStones}</button>
-                    <button className="CupsOne" onClick={() => ButtonClicked(cupThree.index)}>cup 3 stones:{cupThree.nrOfStones}</button>
-                    <button className="CupsOne" onClick={() => ButtonClicked(cupFour.index)}>cup 4 stones:{cupFour.nrOfStones}</button>
-                    <button className="CupsOne" onClick={() => ButtonClicked(cupFive.index)}>cup 5 stones:{cupFive.nrOfStones}</button>
-                    <button className="CupsOne" onClick={() => ButtonClicked(cupSix.index)}>cup 6 stones:{cupSix.nrOfStones}</button>
+                    <button className="CupsOne" onClick={() => MoveMancala(1)}>cup 2 stones:{cupTwo.nrOfStones}</button>
+                    <button className="CupsOne" onClick={() => MoveMancala(2)}>cup 3 stones:{cupThree.nrOfStones}</button>
+                    <button className="CupsOne" onClick={() => MoveMancala(3)}>cup 4 stones:{cupFour.nrOfStones}</button>
+                    <button className="CupsOne" onClick={() => MoveMancala(4)}>cup 5 stones:{cupFive.nrOfStones}</button>
+                    <button className="CupsOne" onClick={() => MoveMancala(5)}>cup 6 stones:{cupSix.nrOfStones}</button>
 
                     <div className="KalahaOne">Kalaha 1 stones:{kalahaOne.nrOfStones}</div>
                 </div>

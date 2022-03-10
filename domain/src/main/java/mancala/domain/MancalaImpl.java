@@ -40,7 +40,7 @@ public class MancalaImpl implements Mancala {
     @Override
     public void playPit(int index) throws MancalaException {
         int reducedIndex = index % 7;
-        board.playerMove(reducedIndex);
+        board.playerMove(reducedIndex + 1);
         this.setActivePlayer();
     }
 
