@@ -25,7 +25,7 @@ public class MoveMancala {
             mancala.playPit(move.getIndex());
 
             // session.setAttribute("mancala", mancala);
-            var output = new Mancala(mancala, namePlayer1, namePlayer2);
+            var output = new MancalaDTO(mancala, namePlayer1, namePlayer2);
             return Response.status(200).entity(output).build();
         }
 

@@ -52,11 +52,17 @@ export function Play({ gameState, setGameState }: PlayProps) {
     const cupTwelve = playerTwo.pits[4];
     const cupThirteen = playerTwo.pits[5];
 
+    var winner = "";
+    if (gameState.gameStatus.endOfGame) {
+        winner = gameState.gameStatus.winner;
+        alert(winner)
+    }
+
     //Defining the layout of the board.
     return (
         <div className="Page">
 
-            <div className="Title">Player 1 VS Player 2</div>
+            <div className="Title"> {playerOne.name} VS {playerTwo.name}</div>
 
             <div className="Board">
 
@@ -69,11 +75,11 @@ export function Play({ gameState, setGameState }: PlayProps) {
                     <button className="CupsTwo" onClick={() => MoveMancala(cupTen.index)}>cup 10 stones:{cupTen.nrOfStones}</button>
                     <button className="CupsTwo" onClick={() => MoveMancala(cupNine.index)}>cup 9 stones:{cupNine.nrOfStones}</button>
                     <button className="CupsTwo" onClick={() => MoveMancala(cupEight.index)}>cup 8 stones:{cupEight.nrOfStones}</button>
-                    <button className="Filler">Player 2</button>
+                    <button className="Filler">{playerTwo.name}</button>
                 </div>
 
                 <div className="BottomBoard">
-                    <button className="Filler">Player 1</button>
+                    <button className="Filler">{playerOne.name}</button>
                     <button className="CupsOne" onClick={() => MoveMancala(cupOne.index)}>cup 1 stones:{cupOne.nrOfStones}</button>
                     <button className="CupsOne" onClick={() => MoveMancala(cupTwo.index)}>cup 2 stones:{cupTwo.nrOfStones}</button>
                     <button className="CupsOne" onClick={() => MoveMancala(cupThree.index)}>cup 3 stones:{cupThree.nrOfStones}</button>
